@@ -45,7 +45,7 @@ export default function HomePage() {
                 variants={staggerItem}
                 data-testid="hero-headline"
               >
-                Governance &<br />Risk Leadership.
+                Enterprise Risk.<br />Executive Careers.
               </motion.h1>
 
               {/* Subheadline */}
