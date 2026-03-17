@@ -140,6 +140,10 @@ const translations = {
       locationDesc: 'Barcelona, Spain',
       error: 'Please fill in all fields.',
       errorGeneric: 'Something went wrong. Please try again.',
+      // Booking card (replaces Calendly)
+      bookingTitle: 'Book a 30-Minute Call',
+      bookingDesc: "I'd love to connect. Send me a message through the form on the left, or reach out directly on LinkedIn — I typically respond within 24 hours and we can find a time that works.",
+      bookingCta: 'Connect on LinkedIn',
     },
     // Footer
     footer: {
@@ -290,6 +294,10 @@ const translations = {
       locationDesc: 'Barcelona, España',
       error: 'Por favor completa todos los campos.',
       errorGeneric: 'Algo ha ido mal. Por favor inténtalo de nuevo.',
+      // Booking card (replaces Calendly)
+      bookingTitle: 'Agenda una Llamada de 30 Minutos',
+      bookingDesc: 'Me encantaría conectar. Envíame un mensaje a través del formulario de la izquierda, o escríbeme directamente por LinkedIn — suelo responder en 24 horas y encontramos un momento que funcione.',
+      bookingCta: 'Conectar en LinkedIn',
     },
     // Footer
     footer: {
@@ -440,6 +448,10 @@ const translations = {
       locationDesc: 'Barcelona, Espanha',
       error: 'Por favor preencha todos os campos.',
       errorGeneric: 'Ops, algo deu errado. Tenta de novo?',
+      // Booking card (replaces Calendly)
+      bookingTitle: 'Agende uma Conversa de 30 Minutos',
+      bookingDesc: 'Adoraria conectar. Envie uma mensagem pelo formulário ao lado, ou entre em contato diretamente pelo LinkedIn — costumo responder em até 24 horas e encontramos um horário juntos.',
+      bookingCta: 'Conectar no LinkedIn',
     },
     // Footer
     footer: {

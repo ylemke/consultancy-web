@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { InlineWidget } from 'react-calendly';
 import axios from 'axios';
-import { ArrowRight, CheckCircle, Loader2 } from 'lucide-react';
+import { ArrowRight, CheckCircle, Loader2, Calendar } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -258,22 +257,27 @@ export default function ContactPage() {
               <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8 sm:mb-12">
                 {t('contact.scheduleCall')}
               </p>
-              <div className="bg-neutral-50 min-h-[500px] sm:min-h-[600px] lg:min-h-[650px]" data-testid="calendly-embed">
-                <InlineWidget 
-                  url="https://calendly.com/yasmin-lemke"
-                  styles={{
-                    height: '100%',
-                    minHeight: '500px',
-                    width: '100%'
-                  }}
-                  pageSettings={{
-                    backgroundColor: 'ffffff',
-                    hideEventTypeDetails: false,
-                    hideLandingPageDetails: false,
-                    primaryColor: '000000',
-                    textColor: '000000'
-                  }}
-                />
+              {/* LinkedIn Booking Card */}
+              <div className="border border-neutral-200 bg-white p-8 sm:p-12 min-h-[400px] flex flex-col justify-center" data-testid="booking-card">
+                <div className="flex items-center gap-3 mb-6">
+                  <Calendar className="w-6 h-6 text-neutral-400" />
+                  <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-black">
+                    {t('contact.bookingTitle')}
+                  </h3>
+                </div>
+                <p className="text-base sm:text-lg font-light leading-relaxed text-neutral-500 mb-8">
+                  {t('contact.bookingDesc')}
+                </p>
+                <a
+                  href="https://www.linkedin.com/in/yasmin-lemke/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 w-full sm:w-auto"
+                  data-testid="booking-linkedin-btn"
+                >
+                  {t('contact.bookingCta')}
+                  <ArrowRight className="ml-3 w-4 h-4" />
+                </a>
               </div>
             </motion.div>
           </div>

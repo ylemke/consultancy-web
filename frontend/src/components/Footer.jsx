@@ -73,7 +73,7 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-2 sm:gap-3">
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/yasmin-lemke/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-sm text-neutral-500 hover:text-black transition-colors"
