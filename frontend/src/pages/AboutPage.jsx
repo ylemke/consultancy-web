@@ -63,7 +63,7 @@ export default function AboutPage() {
                 </div>
                 <div className="h-12 sm:h-16 w-px bg-neutral-200" />
                 <div>
-                  <p className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tighter text-black">15+</p>
+                  <p className="text-3xl sm:text-4xl md:text-5xl font-extralight tracking-tighter text-black">{t('about.yearsNumber') || '7+'}</p>
                   <p className="text-[10px] sm:text-xs tracking-[0.15em] uppercase text-neutral-400 mt-1">{t('about.years')}</p>
                 </div>
               </motion.div>
@@ -191,20 +191,15 @@ export default function AboutPage() {
 
             <motion.div className="lg:col-span-9" variants={staggerItem}>
               <div className="space-y-8 sm:space-y-10">
-                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-12">
-                  <p className="text-sm text-neutral-400 font-medium tracking-wider w-32 flex-shrink-0">Microsoft</p>
-                  <p className="text-sm sm:text-base text-neutral-500">Enterprise governance and risk strategy leadership</p>
-                </div>
-                <div className="h-px bg-neutral-100" />
-                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-12">
-                  <p className="text-sm text-neutral-400 font-medium tracking-wider w-32 flex-shrink-0">Amazon</p>
-                  <p className="text-sm sm:text-base text-neutral-500">Operational excellence and compliance frameworks</p>
-                </div>
-                <div className="h-px bg-neutral-100" />
-                <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-12">
-                  <p className="text-sm text-neutral-400 font-medium tracking-wider w-32 flex-shrink-0">BNP Paribas</p>
-                  <p className="text-sm sm:text-base text-neutral-500">Global risk management and portfolio oversight</p>
-                </div>
+                {t('about.experienceItems')?.map((item, index) => (
+                  <div key={index}>
+                    <div className="flex flex-col sm:flex-row sm:items-start gap-2 sm:gap-12">
+                      <p className="text-sm text-neutral-400 font-medium tracking-wider w-32 flex-shrink-0">{item.company}</p>
+                      <p className="text-sm sm:text-base text-neutral-500">{item.role}</p>
+                    </div>
+                    {index < t('about.experienceItems').length - 1 && <div className="h-px bg-neutral-100 mt-8 sm:mt-10" />}
+                  </div>
+                ))}
               </div>
             </motion.div>
           </motion.div>
