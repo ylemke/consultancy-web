@@ -292,6 +292,14 @@ export default function ContactPage() {
           >
             <motion.div variants={staggerItem}>
               <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-3 sm:mb-4">
+                {t('contact.locationLabel')}
+              </p>
+              <p className="text-sm sm:text-base text-neutral-600">
+                {t('contact.locationDesc')}
+              </p>
+            </motion.div>
+            <motion.div variants={staggerItem}>
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-3 sm:mb-4">
                 {t('contact.responseTime')}
               </p>
               <p className="text-sm sm:text-base text-neutral-600">

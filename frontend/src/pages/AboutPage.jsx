@@ -117,6 +117,9 @@ export default function AboutPage() {
               <p className="text-base sm:text-lg md:text-xl font-light leading-relaxed text-neutral-500" data-testid="about-bio-3">
                 {t('about.bio3')}
               </p>
+              <p className="text-sm sm:text-base font-medium text-neutral-400 pt-4">
+                {t('about.location')}
+              </p>
             </motion.div>
           </motion.div>
         </div>

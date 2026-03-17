@@ -87,8 +87,11 @@ export default function HomePage() {
                 <p className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-neutral-300 mb-3 sm:mb-4">
                   {t('home.trusted')}
                 </p>
-                <p className="text-xs sm:text-sm text-neutral-400 tracking-[0.15em]" data-testid="trust-banner">
+                <p className="text-xs sm:text-sm text-neutral-400 tracking-[0.15em] mb-4" data-testid="trust-banner">
                   Microsoft &nbsp;&nbsp;·&nbsp;&nbsp; Amazon &nbsp;&nbsp;·&nbsp;&nbsp; BNP Paribas
+                </p>
+                <p className="text-[10px] sm:text-xs text-neutral-300 tracking-[0.15em]">
+                  {t('home.location')}
                 </p>
               </motion.div>
             </motion.div>
