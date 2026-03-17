@@ -57,8 +57,8 @@ export function Navigation() {
               <span className="text-xl sm:text-2xl font-extralight tracking-tighter text-black group-hover:opacity-60 transition-opacity">
                 Y
               </span>
-              <span className="hidden xs:block h-4 w-px bg-neutral-200" />
-              <span className="hidden xs:block text-[9px] sm:text-[10px] font-medium tracking-[0.25em] uppercase text-neutral-400 group-hover:text-black transition-colors">
+              <span className="h-4 w-px bg-neutral-200" />
+              <span className="text-[9px] sm:text-[10px] font-medium tracking-[0.25em] uppercase text-neutral-400 group-hover:text-black transition-colors">
                 Lemke
               </span>
             </Link>
