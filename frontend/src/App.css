@@ -1,34 +1,161 @@
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
+/* Ultra-Minimalist Luxury Advisory Styles */
+
+/* Tracking utilities for typography */
+.tracking-tighter {
+    letter-spacing: -0.05em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+.tracking-tight {
+    letter-spacing: -0.025em;
 }
 
-.App-header {
-    background-color: #0f0f10;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+.tracking-widest {
+    letter-spacing: 0.2em;
 }
 
-.App-link {
-    color: #61dafb;
+/* Gold accent color */
+.bg-gold {
+    background-color: #D4AF37;
 }
 
-@keyframes App-logo-spin {
+.bg-gold:hover {
+    background-color: #C5A028;
+}
+
+.text-gold {
+    color: #D4AF37;
+}
+
+.border-gold {
+    border-color: #D4AF37;
+}
+
+/* Smooth transitions */
+.transition-luxury {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Navigation backdrop blur */
+.nav-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Hero background overlay */
+.hero-overlay {
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.95) 0%,
+        rgba(255, 255, 255, 0.85) 30%,
+        rgba(255, 255, 255, 0.75) 60%,
+        rgba(255, 255, 255, 0.9) 100%
+    );
+}
+
+/* About section overlay */
+.about-overlay {
+    background: linear-gradient(to right,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(255, 255, 255, 0.95) 40%,
+        rgba(255, 255, 255, 0.7) 100%
+    );
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: #D4AF37;
+    color: #FFFFFF;
+    padding: 1rem 2.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #C5A028;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #000000;
+    padding: 1rem 2.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    border: 1px solid #D4AF37;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: #D4AF37;
+    color: #FFFFFF;
+}
+
+/* Input styles */
+.input-minimal {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #E5E5E5;
+    padding: 1rem 0;
+    font-size: 1rem;
+    width: 100%;
+    transition: border-color 0.3s ease;
+}
+
+.input-minimal:focus {
+    outline: none;
+    border-bottom-color: #000000;
+}
+
+.input-minimal::placeholder {
+    color: #A0A0A0;
+}
+
+/* Line separator */
+.line-separator {
+    height: 1px;
+    background-color: #E5E5E5;
+}
+
+/* Animation classes */
+@keyframes fadeInUp {
     from {
-        transform: rotate(0deg);
+        opacity: 0;
+        transform: translateY(40px);
     }
     to {
-        transform: rotate(360deg);
+        opacity: 1;
+        transform: translateY(0);
     }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Stagger children animation delays */
+.stagger-1 { animation-delay: 0.1s; }
+.stagger-2 { animation-delay: 0.2s; }
+.stagger-3 { animation-delay: 0.3s; }
+.stagger-4 { animation-delay: 0.4s; }
+.stagger-5 { animation-delay: 0.5s; }
+
+/* Hide scrollbar for specific elements */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Calendly styling override */
+.calendly-inline-widget {
+    min-width: 320px;
+    height: 700px;
 }
