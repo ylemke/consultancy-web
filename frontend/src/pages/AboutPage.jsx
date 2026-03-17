@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const PROFESSIONAL_IMAGE = "https://images.unsplash.com/photo-1673658173863-a28be73c7f90?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBsYXRpbmElMjB3b21hbiUyMGhlYWRzaG90JTIwY29ycG9yYXRlJTIwZWxlZ2FudCUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzM3Njg2NjJ8MA&ixlib=rb-4.1.0&q=85";
+const PROFESSIONAL_IMAGE = "https://customer-assets.emergentagent.com/job_compliance-masters/artifacts/qgqwjw2b_WhatsApp%20Image%202026-03-17%20at%2020.34.41.jpeg";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
