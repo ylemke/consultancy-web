@@ -1,0 +1,160 @@
+{
+  "design_strategy": {
+    "theme": "light",
+    "core_philosophy": "Ultra-Minimalism. Subtractive Design. Typography as Architecture.",
+    "emotional_tone": "Pristine, Authoritative, Exclusive, Timeless",
+    "target_audience": "C-suite executives, Global Enterprises, High-net-worth individuals"
+  },
+  "typography": {
+    "font_family": {
+      "primary": "Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif",
+      "secondary": "Inter, -apple-system, BlinkMacSystemFont, 'SF Pro Text', sans-serif"
+    },
+    "scale": {
+      "display_massive": "text-7xl md:text-9xl font-light tracking-tighter leading-none",
+      "h1": "text-5xl md:text-7xl font-light tracking-tight leading-tight",
+      "h2": "text-3xl md:text-5xl font-normal tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium tracking-normal",
+      "body_large": "text-lg md:text-xl font-light leading-relaxed text-neutral-600",
+      "body": "text-base font-normal leading-relaxed text-neutral-600",
+      "label": "text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400"
+    },
+    "rules": [
+      "Headings must be TIGHT (tracking-tighter).",
+      "Labels must be WIDE (tracking-[0.2em]).",
+      "Never use bold weights for display text; rely on size for hierarchy.",
+      "Use 'Inter' with 'font-feature-settings': 'cv11', 'ss01' for a more Swiss/technical look if possible."
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#FFFFFF",
+      "foreground": "#000000",
+      "primary": "#000000",
+      "secondary": "#525252",
+      "accent": "#D4AF37",
+      "border": "#E5E5E5",
+      "subtle": "#F5F5F5"
+    },
+    "usage": {
+      "background": "bg-white",
+      "text_main": "text-black",
+      "text_muted": "text-neutral-500",
+      "cta_primary": "bg-[#D4AF37] text-white hover:bg-[#C5A028] transition-colors duration-300",
+      "cta_secondary": "bg-transparent border border-neutral-200 text-black hover:border-black transition-colors duration-300",
+      "divider": "border-neutral-100"
+    }
+  },
+  "layout_grid": {
+    "container": "container mx-auto px-6 md:px-12 max-w-7xl",
+    "spacing": {
+      "section_padding": "py-24 md:py-32",
+      "element_gap": "gap-12 md:gap-24"
+    },
+    "bento_strategy": "Mode A (The Tetris Grid) - Focusing on asymmetry and negative space.",
+    "rules": [
+      "Use massive negative space. Allow text to breathe.",
+      "Avoid centering text unless absolutely necessary for a specific 'editorial' moment.",
+      "Align content to the left grid lines.",
+      "Use 12-column grid for desktop, 1-column for mobile."
+    ]
+  },
+  "components": {
+    "buttons": {
+      "primary": "h-12 px-8 rounded-none text-sm font-medium tracking-widest uppercase bg-[#D4AF37] text-white hover:bg-[#C5A028]",
+      "secondary": "h-12 px-8 rounded-none text-sm font-medium tracking-widest uppercase border border-neutral-200 hover:border-black bg-transparent text-black"
+    },
+    "cards": {
+      "style": "No visible cards (borderless). Content floats in negative space.",
+      "hover": "No elevation/shadow. Subtle opacity shift or text color change on hover."
+    },
+    "inputs": {
+      "style": "bg-transparent border-b border-neutral-300 rounded-none px-0 py-4 focus:border-black focus:ring-0 placeholder:text-neutral-300 transition-colors"
+    },
+    "navigation": {
+      "style": "Fixed top, transparent backdrop with blur. Logo left, Links right.",
+      "links": "text-sm font-medium tracking-widest uppercase hover:text-[#D4AF37] transition-colors"
+    }
+  },
+  "visual_enhancers": {
+    "hero_overlay": "Use a white gradient overlay on image_1.png: 'bg-gradient-to-t from-white via-white/50 to-transparent' to seamlessly blend it into the white background.",
+    "texture": "Clean. No grain. No noise. Pure vector precision.",
+    "decoration": "Use single 1px lines (dividers) sparingly to create structure without weight."
+  },
+  "motion": {
+    "library": "framer-motion",
+    "effects": {
+      "fade_up": {
+        "initial": { "opacity": 0, "y": 40 },
+        "whileInView": { "opacity": 1, "y": 0 },
+        "viewport": { "once": true },
+        "transition": { "duration": 0.8, "ease": "easeOut" }
+      },
+      "stagger": {
+        "container": {
+          "hidden": { "opacity": 0 },
+          "show": {
+            "opacity": 1,
+            "transition": { "staggerChildren": 0.1 }
+          }
+        },
+        "item": {
+          "hidden": { "opacity": 0, "y": 20 },
+          "show": { "opacity": 1, "y": 0 }
+        }
+      }
+    }
+  },
+  "images": {
+    "hero_bg": {
+      "url": "https://customer-assets.emergentagent.com/job_compliance-masters/artifacts/je32x1f1_IMG_9347.JPG",
+      "alt": "Yasmin Lemke Professional Portrait",
+      "treatment": "Blend with white gradient overlay. Positioned right or center-aligned with heavy opacity fade."
+    },
+    "architectural_accents": [
+      {
+        "url": "https://images.unsplash.com/photo-1576005887936-6e73c73c3702",
+        "alt": "Minimalist White Stairs",
+        "description": "Use for 'Companies' or 'Careers' background if needed (very low opacity)"
+      }
+    ]
+  },
+  "pages": {
+    "home": {
+      "hero": "Headline: 'STRATEGIC. GOVERNANCE. LEGACY.' Subtext: 'Advisory for the world's most demanding leaders.' CTA: 'Inquire Now'",
+      "trust_banner": "Logos in grayscale, low opacity (30%).",
+      "metrics": "Large numbers (text-8xl), fine labels."
+    },
+    "companies": {
+      "layout": "3-column text grid. Headings: 'Governance', 'Risk', 'Strategy'. Content: Bullet points with custom gold markers."
+    },
+    "careers": {
+      "layout": "3-column text grid. Focus on 'Mentorship', 'Growth', 'Placement'. Subtle architectural background."
+    },
+    "about": {
+      "layout": "Split screen (Text Left, Image Right - blended). Bio text in 'body_large'."
+    },
+    "contact": {
+      "layout": "Minimalist form left, Calendly embed right. 'Let's shape the future.' headline."
+    }
+  },
+  "instructions_to_main_agent": [
+    "1. IMPLEMENTATION: Use 'Inter' font family. Ensure `tailwind.config.js` extends font family.",
+    "2. IMAGES: Use the provided `hero_bg` image for Home and About. Apply `mix-blend-multiply` or opacity fade to ensure text readability.",
+    "3. SPACING: Do not be afraid of empty space. If it feels empty, add more padding, not more content.",
+    "4. COMPONENTS: Do not use Cards. Use simple `div`s with padding. Use lines (`border-t`) to separate content sections instead of boxes.",
+    "5. GOLD ACCENT: Use #D4AF37 strictly for Buttons and maybe 1-2 key lines/underlines. Never for body text.",
+    "6. CALENDLY: Use `react-calendly` or simple iframe for the embed.",
+    "7. DATA-TESTID: Add `data-testid` to all interactive elements."
+  ],
+  "universal_guidelines": [
+    "You tend to converge toward generic outputs. Avoid this.",
+    "Don't make generic centered layouts. Use asymmetric grids.",
+    "Every interaction needs micro-animations - hover states, transitions.",
+    "Use 2-3x more spacing than feels comfortable.",
+    "Subtle textures and noise overlays separate good from extraordinary.",
+    "Prioritize using pre-existing components from src/components/ui when applicable.",
+    "Components MUST use named exports.",
+    "Pages MUST use default exports."
+  ]
+}
