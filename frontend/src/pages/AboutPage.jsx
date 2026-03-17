@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const PROFESSIONAL_IMAGE = "https://customer-assets.emergentagent.com/job_compliance-masters/artifacts/qgqwjw2b_WhatsApp%20Image%202026-03-17%20at%2020.34.41.jpeg";
+const PROFESSIONAL_IMAGE_BW = "https://customer-assets.emergentagent.com/job_compliance-masters/artifacts/ufcorw3h_WhatsApp%20Image%202026-03-17%20at%2020.34.42.jpeg";
+const PROFESSIONAL_IMAGE_COLOR = "https://customer-assets.emergentagent.com/job_compliance-masters/artifacts/ip9spapz_WhatsApp%20Image%202026-03-17%20at%2020.46.25.jpeg";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -75,13 +76,20 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <div className="relative max-w-sm mx-auto lg:max-w-none">
-                <div className="aspect-[3/4] overflow-hidden">
+              <div className="relative max-w-sm mx-auto lg:max-w-none group">
+                <div className="aspect-[3/4] overflow-hidden relative">
+                  {/* B&W Image - default */}
                   <img 
-                    src={PROFESSIONAL_IMAGE} 
+                    src={PROFESSIONAL_IMAGE_BW} 
                     alt="Yasmin Lemke" 
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover object-top absolute inset-0 transition-opacity duration-500 group-hover:opacity-0"
                     data-testid="about-image"
+                  />
+                  {/* Color Image - on hover */}
+                  <img 
+                    src={PROFESSIONAL_IMAGE_COLOR} 
+                    alt="Yasmin Lemke" 
+                    className="w-full h-full object-cover object-top absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
                   />
                 </div>
                 <div className="absolute -bottom-4 -left-4 w-16 sm:w-24 h-px bg-black" />
