@@ -472,11 +472,8 @@ export function LanguageProvider({ children }) {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('language');
       if (saved && ['en', 'es', 'pt'].includes(saved)) return saved;
-      // Detect browser language
-      const browserLang = navigator.language.slice(0, 2);
-      if (['es', 'pt'].includes(browserLang)) return browserLang;
     }
-    return 'en';
+    return 'en'; // Default to English
   });
 
   useEffect(() => {
