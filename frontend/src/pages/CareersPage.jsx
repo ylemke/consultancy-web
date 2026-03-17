@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: "easeOut" }
-};
+import { useLanguage } from '../context/LanguageContext';
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -23,42 +17,44 @@ const staggerItem = {
 };
 
 export default function CareersPage() {
+  const { t } = useLanguage();
+
   return (
-    <div className="bg-white min-h-screen pt-24" data-testid="careers-page">
+    <div className="bg-white min-h-screen pt-16 sm:pt-24" data-testid="careers-page">
       {/* Hero Section */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8">
-              Professional Mentorship
+            <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-8">
+              {t('careers.label')}
             </p>
             <h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-none text-black mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tighter leading-[0.95] text-black mb-6 sm:mb-8"
               data-testid="careers-headline"
             >
-              Land Your<br />Defining Role.
+              {t('careers.headline')}<br />{t('careers.headline2')}
             </h1>
-            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl">
-              Strategic career guidance that transforms ambitious professionals into Big Tech leaders. I decode the hiring process so you can articulate your value with clarity and confidence.
+            <p className="text-base sm:text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl">
+              {t('careers.subheadline')}
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Divider */}
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
         <div className="h-px bg-neutral-100" />
       </div>
 
       {/* Services Section */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 xl:gap-24"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
@@ -66,81 +62,81 @@ export default function CareersPage() {
           >
             {/* Service 1 */}
             <motion.div variants={staggerItem} data-testid="service-interview">
-              <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">01</span>
+              <div className="mb-6 sm:mb-8">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">01</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
-                Big Tech Interview Mastery
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-black mb-4 sm:mb-6">
+                {t('careers.service1Title')}
               </h3>
-              <p className="text-base font-normal leading-relaxed text-neutral-600 mb-8">
-                1:1 behavioral and technical coaching to decode the hiring process and master the STAR method. Understand what top companies truly look for and how to demonstrate it.
+              <p className="text-sm sm:text-base font-normal leading-relaxed text-neutral-600 mb-6 sm:mb-8">
+                {t('careers.service1Desc')}
               </p>
-              <ul className="space-y-3 text-sm text-neutral-500">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-neutral-500">
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  STAR method mastery
+                  {t('careers.service1Item1')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Mock interview sessions
+                  {t('careers.service1Item2')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Technical deep-dives
+                  {t('careers.service1Item3')}
                 </li>
               </ul>
             </motion.div>
 
             {/* Service 2 */}
             <motion.div variants={staggerItem} data-testid="service-presence">
-              <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">02</span>
+              <div className="mb-6 sm:mb-8">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">02</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
-                Executive Presence & Storytelling
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-black mb-4 sm:mb-6">
+                {t('careers.service2Title')}
               </h3>
-              <p className="text-base font-normal leading-relaxed text-neutral-600 mb-8">
-                Learn to translate operational complexity into clear, compelling narratives that influence stakeholders. Build the presence that commands rooms and accelerates careers.
+              <p className="text-sm sm:text-base font-normal leading-relaxed text-neutral-600 mb-6 sm:mb-8">
+                {t('careers.service2Desc')}
               </p>
-              <ul className="space-y-3 text-sm text-neutral-500">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-neutral-500">
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Narrative construction
+                  {t('careers.service2Item1')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Stakeholder influence
+                  {t('careers.service2Item2')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Leadership communication
+                  {t('careers.service2Item3')}
                 </li>
               </ul>
             </motion.div>
 
             {/* Service 3 */}
             <motion.div variants={staggerItem} data-testid="service-strategy">
-              <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">03</span>
+              <div className="mb-6 sm:mb-8">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">03</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
-                Career Elevation Strategy
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-black mb-4 sm:mb-6">
+                {t('careers.service3Title')}
               </h3>
-              <p className="text-base font-normal leading-relaxed text-neutral-600 mb-8">
-                Strategic mentorship to map your path to senior leadership and build a personalized roadmap. Navigate transitions, negotiate offers, and accelerate your trajectory.
+              <p className="text-sm sm:text-base font-normal leading-relaxed text-neutral-600 mb-6 sm:mb-8">
+                {t('careers.service3Desc')}
               </p>
-              <ul className="space-y-3 text-sm text-neutral-500">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-neutral-500">
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Career trajectory mapping
+                  {t('careers.service3Item1')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Offer negotiation strategy
+                  {t('careers.service3Item2')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Leadership transition support
+                  {t('careers.service3Item3')}
                 </li>
               </ul>
             </motion.div>
@@ -148,18 +144,21 @@ export default function CareersPage() {
         </div>
       </section>
 
-      {/* Testimonial Section */}
-      <section className="py-24 md:py-32 border-t border-neutral-100">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      {/* Quote Section */}
+      <section className="py-16 sm:py-24 md:py-32 border-t border-neutral-100">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
             className="max-w-3xl"
-            {...fadeInUp}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8">
-              The Approach
+            <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-6 sm:mb-8">
+              {t('careers.approachLabel')}
             </p>
-            <blockquote className="text-2xl md:text-3xl font-light tracking-tight text-black leading-relaxed mb-8">
-              "I reverse-engineer the Big Tech hiring process to help ambitious professionals articulate their value and secure career-defining roles."
+            <blockquote className="text-xl sm:text-2xl md:text-3xl font-light tracking-tight text-black leading-relaxed mb-6 sm:mb-8">
+              {t('careers.approachQuote')}
             </blockquote>
             <p className="text-sm font-medium text-neutral-500">
               — Yasmin Lemke
@@ -169,26 +168,29 @@ export default function CareersPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 border-t border-neutral-100">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32 border-t border-neutral-100">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
-            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12"
-            {...fadeInUp}
+            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 sm:gap-12"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-6">
-                Ready to Accelerate?
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-6">
+                {t('careers.ctaLabel')}
               </p>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-black">
-                Let's map your path to leadership.
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-black">
+                {t('careers.ctaTitle')}
               </h2>
             </div>
             <Link 
               to="/contact"
-              className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 flex-shrink-0"
+              className="inline-flex items-center justify-center h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 flex-shrink-0 w-full sm:w-auto"
               data-testid="careers-cta"
             >
-              Book Your Session
+              {t('careers.ctaButton')}
               <ArrowRight className="ml-3 w-4 h-4" />
             </Link>
           </motion.div>

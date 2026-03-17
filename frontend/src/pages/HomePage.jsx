@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const PROFESSIONAL_IMAGE = "https://images.unsplash.com/photo-1673658173863-a28be73c7f90?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTV8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBsYXRpbmElMjB3b21hbiUyMGhlYWRzaG90JTIwY29ycG9yYXRlJTIwZWxlZ2FudCUyMHdoaXRlJTIwYmFja2dyb3VuZHxlbnwwfHx8fDE3NzM3Njg2NjJ8MA&ixlib=rb-4.1.0&q=85";
 
@@ -18,86 +19,88 @@ const staggerItem = {
 };
 
 export default function HomePage() {
+  const { t } = useLanguage();
+
   return (
     <div className="bg-white min-h-screen" data-testid="home-page">
-      {/* Hero Section - Minimalist Typography-Driven */}
-      <section className="min-h-screen flex items-center pt-20" data-testid="hero-section">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-            {/* Text Content - Takes More Space */}
+      {/* Hero Section */}
+      <section className="min-h-screen flex items-center pt-16 sm:pt-20 pb-12" data-testid="hero-section">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-24 items-center">
+            {/* Text Content */}
             <motion.div 
-              className="lg:col-span-7"
+              className="lg:col-span-7 order-2 lg:order-1"
               variants={staggerContainer}
               initial="hidden"
               animate="show"
             >
               {/* Label */}
               <motion.p 
-                className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8"
+                className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-8"
                 variants={staggerItem}
               >
-                Strategic Advisory
+                {t('home.label')}
               </motion.p>
 
               {/* Main Headline */}
               <motion.h1 
-                className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-[0.95] text-black mb-8"
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tighter leading-[0.95] text-black mb-6 sm:mb-8"
                 variants={staggerItem}
                 data-testid="hero-headline"
               >
-                Enterprise Risk.<br />Executive Careers.
+                {t('home.headline')}<br />{t('home.headline2')}
               </motion.h1>
 
               {/* Subheadline */}
               <motion.p 
-                className="text-lg md:text-xl font-light leading-relaxed text-neutral-500 max-w-xl mb-12"
+                className="text-base sm:text-lg md:text-xl font-light leading-relaxed text-neutral-500 max-w-xl mb-8 sm:mb-12"
                 variants={staggerItem}
                 data-testid="hero-subheadline"
               >
-                Governance that Accelerates. Careers that Scale. I build AI-driven, supportable risk frameworks for global enterprises, and mentor ambitious professionals to conquer rigorous Big Tech interview loops.
+                {t('home.subheadline')}
               </motion.p>
 
-              {/* CTA Buttons - Minimal */}
+              {/* CTA Buttons */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-6 mb-16"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16"
                 variants={staggerItem}
               >
                 <Link 
                   to="/companies"
-                  className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300"
+                  className="inline-flex items-center justify-center h-12 sm:h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300"
                   data-testid="partner-cta"
                 >
-                  Partner with Me
-                  <ArrowRight className="ml-3 w-4 h-4" />
+                  {t('home.cta1')}
+                  <ArrowRight className="ml-2 sm:ml-3 w-4 h-4" />
                 </Link>
                 <Link 
                   to="/careers"
-                  className="inline-flex items-center justify-center h-12 px-8 border border-black text-black text-xs font-medium tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300"
+                  className="inline-flex items-center justify-center h-12 sm:h-12 px-6 sm:px-8 border border-black text-black text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300"
                   data-testid="career-cta"
                 >
-                  Advance Your Career
+                  {t('home.cta2')}
                 </Link>
               </motion.div>
 
               {/* Trust Banner */}
               <motion.div variants={staggerItem}>
-                <p className="text-xs font-medium tracking-[0.2em] uppercase text-neutral-300 mb-4">
-                  Trusted Experience
+                <p className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-neutral-300 mb-3 sm:mb-4">
+                  {t('home.trusted')}
                 </p>
-                <p className="text-sm text-neutral-400 tracking-[0.15em]" data-testid="trust-banner">
+                <p className="text-xs sm:text-sm text-neutral-400 tracking-[0.15em]" data-testid="trust-banner">
                   Microsoft &nbsp;&nbsp;·&nbsp;&nbsp; Amazon &nbsp;&nbsp;·&nbsp;&nbsp; BNP Paribas
                 </p>
               </motion.div>
             </motion.div>
 
-            {/* Image - Minimal, Elegant */}
+            {/* Image */}
             <motion.div 
-              className="lg:col-span-5"
+              className="lg:col-span-5 order-1 lg:order-2"
               initial={{ opacity: 0, x: 40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              <div className="relative">
+              <div className="relative max-w-sm mx-auto lg:max-w-none">
                 <div className="aspect-[3/4] overflow-hidden">
                   <img 
                     src={PROFESSIONAL_IMAGE} 
@@ -106,51 +109,47 @@ export default function HomePage() {
                     data-testid="hero-image"
                   />
                 </div>
-                {/* Subtle accent line */}
-                <div className="absolute -bottom-4 -left-4 w-24 h-px bg-black" />
+                <div className="absolute -bottom-4 -left-4 w-16 sm:w-24 h-px bg-black" />
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Metrics Section - Even More Minimal */}
-      <section className="py-24 md:py-32 border-t border-neutral-100" data-testid="metrics-section">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      {/* Metrics Section */}
+      <section className="py-16 sm:py-24 md:py-32 border-t border-neutral-100" data-testid="metrics-section">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-24"
+            className="grid grid-cols-3 gap-6 sm:gap-12 md:gap-24"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
           >
-            {/* Metric 1 */}
             <motion.div className="text-left" variants={staggerItem}>
-              <p className="text-6xl md:text-7xl font-extralight tracking-tighter text-black mb-3" data-testid="metric-portfolios">
+              <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tighter text-black mb-1 sm:mb-3" data-testid="metric-portfolios">
                 $9B+
               </p>
-              <p className="text-xs font-medium tracking-[0.2em] uppercase text-neutral-400">
-                Managed Portfolios
+              <p className="text-[9px] sm:text-xs font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-neutral-400">
+                {t('home.managedPortfolios')}
               </p>
             </motion.div>
 
-            {/* Metric 2 */}
             <motion.div className="text-left" variants={staggerItem}>
-              <p className="text-6xl md:text-7xl font-extralight tracking-tighter text-black mb-3" data-testid="metric-reduction">
+              <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tighter text-black mb-1 sm:mb-3" data-testid="metric-reduction">
                 25%
               </p>
-              <p className="text-xs font-medium tracking-[0.2em] uppercase text-neutral-400">
-                Risk Reduction
+              <p className="text-[9px] sm:text-xs font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-neutral-400">
+                {t('home.riskReduction')}
               </p>
             </motion.div>
 
-            {/* Metric 3 */}
             <motion.div className="text-left" variants={staggerItem}>
-              <p className="text-6xl md:text-7xl font-extralight tracking-tighter text-black mb-3" data-testid="metric-languages">
+              <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tighter text-black mb-1 sm:mb-3" data-testid="metric-languages">
                 3
               </p>
-              <p className="text-xs font-medium tracking-[0.2em] uppercase text-neutral-400">
-                Languages
+              <p className="text-[9px] sm:text-xs font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-neutral-400">
+                {t('home.languages')}
               </p>
             </motion.div>
           </motion.div>
@@ -158,8 +157,8 @@ export default function HomePage() {
       </section>
 
       {/* Brief Intro Section */}
-      <section className="py-24 md:py-32 border-t border-neutral-100">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32 border-t border-neutral-100">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
             className="max-w-3xl"
             initial={{ opacity: 0, y: 40 }}
@@ -167,30 +166,30 @@ export default function HomePage() {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8">
-              Dual Expertise
+            <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-8">
+              {t('home.dualExpertise')}
             </p>
-            <h2 className="text-3xl md:text-4xl font-light tracking-tight text-black mb-8 leading-tight">
-              Enterprise transformation meets career acceleration.
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-light tracking-tight text-black mb-6 sm:mb-8 leading-tight">
+              {t('home.dualTitle')}
             </h2>
-            <p className="text-lg font-light leading-relaxed text-neutral-500 mb-12">
-              Whether you're a global enterprise seeking robust governance frameworks, or an ambitious professional preparing for your defining career move — I provide strategic guidance that delivers measurable outcomes.
+            <p className="text-base sm:text-lg font-light leading-relaxed text-neutral-500 mb-8 sm:mb-12">
+              {t('home.dualDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-8">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
               <Link 
                 to="/companies"
-                className="text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-[#D4AF37] transition-colors inline-flex items-center group"
+                className="text-xs sm:text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-neutral-500 transition-colors inline-flex items-center group"
                 data-testid="explore-companies-link"
               >
-                For Enterprises
+                {t('home.forEnterprises')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
               <Link 
                 to="/careers"
-                className="text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-[#D4AF37] transition-colors inline-flex items-center group"
+                className="text-xs sm:text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-neutral-500 transition-colors inline-flex items-center group"
                 data-testid="explore-careers-link"
               >
-                For Professionals
+                {t('home.forProfessionals')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>

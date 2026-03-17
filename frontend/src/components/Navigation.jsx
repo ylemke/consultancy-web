@@ -1,19 +1,28 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
-
-const navLinks = [
-  { name: 'Companies', path: '/companies' },
-  { name: 'Careers', path: '/careers' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/contact' },
-];
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const location = useLocation();
+  const { language, setLanguage, t } = useLanguage();
+
+  const navLinks = [
+    { name: t('nav.companies'), path: '/companies' },
+    { name: t('nav.careers'), path: '/careers' },
+    { name: t('nav.about'), path: '/about' },
+    { name: t('nav.contact'), path: '/contact' },
+  ];
+
+  const languages = [
+    { code: 'en', label: 'EN' },
+    { code: 'es', label: 'ES' },
+    { code: 'pt', label: 'PT' },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +35,7 @@ export function Navigation() {
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsLangOpen(false);
   }, [location]);
 
   return (
@@ -36,26 +46,25 @@ export function Navigation() {
         }`}
         data-testid="main-navigation"
       >
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-          <div className="flex items-center justify-between h-20">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Minimalist Logo */}
             <Link 
               to="/"
-              className="group flex items-center gap-3"
+              className="group flex items-center gap-2 sm:gap-3"
               data-testid="nav-logo"
             >
-              {/* Stylized Y monogram */}
-              <span className="text-2xl font-extralight tracking-tighter text-black group-hover:opacity-60 transition-opacity">
+              <span className="text-xl sm:text-2xl font-extralight tracking-tighter text-black group-hover:opacity-60 transition-opacity">
                 Y
               </span>
-              <span className="hidden sm:block h-4 w-px bg-neutral-200" />
-              <span className="hidden sm:block text-[10px] font-medium tracking-[0.25em] uppercase text-neutral-400 group-hover:text-black transition-colors">
+              <span className="hidden xs:block h-4 w-px bg-neutral-200" />
+              <span className="hidden xs:block text-[9px] sm:text-[10px] font-medium tracking-[0.25em] uppercase text-neutral-400 group-hover:text-black transition-colors">
                 Lemke
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center gap-10">
+            <div className="hidden lg:flex items-center gap-8 xl:gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
@@ -65,22 +74,100 @@ export function Navigation() {
                       ? 'text-black' 
                       : 'text-neutral-400 hover:text-black'
                   }`}
-                  data-testid={`nav-${link.name.toLowerCase()}`}
+                  data-testid={`nav-${link.path.slice(1)}`}
                 >
                   {link.name}
                 </Link>
               ))}
+
+              {/* Language Selector - Desktop */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  className="flex items-center gap-1 text-[11px] font-medium tracking-[0.2em] uppercase text-neutral-400 hover:text-black transition-colors"
+                  data-testid="language-selector"
+                >
+                  {language.toUpperCase()}
+                  <ChevronDown className={`w-3 h-3 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {isLangOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute top-full right-0 mt-2 bg-white border border-neutral-100 shadow-sm"
+                    >
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            setLanguage(lang.code);
+                            setIsLangOpen(false);
+                          }}
+                          className={`block w-full px-4 py-2 text-[11px] font-medium tracking-[0.2em] uppercase text-left transition-colors ${
+                            language === lang.code ? 'text-black bg-neutral-50' : 'text-neutral-400 hover:text-black hover:bg-neutral-50'
+                          }`}
+                          data-testid={`lang-${lang.code}`}
+                        >
+                          {lang.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-black"
-              data-testid="mobile-menu-toggle"
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+            {/* Mobile: Language + Menu */}
+            <div className="flex lg:hidden items-center gap-4">
+              {/* Language Selector - Mobile */}
+              <div className="relative">
+                <button
+                  onClick={() => setIsLangOpen(!isLangOpen)}
+                  className="flex items-center gap-1 text-[10px] font-medium tracking-[0.15em] uppercase text-neutral-400"
+                  data-testid="language-selector-mobile"
+                >
+                  {language.toUpperCase()}
+                  <ChevronDown className={`w-3 h-3 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
+                </button>
+                <AnimatePresence>
+                  {isLangOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="absolute top-full right-0 mt-2 bg-white border border-neutral-100 shadow-sm z-50"
+                    >
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          onClick={() => {
+                            setLanguage(lang.code);
+                            setIsLangOpen(false);
+                          }}
+                          className={`block w-full px-4 py-2 text-[10px] font-medium tracking-[0.15em] uppercase text-left transition-colors ${
+                            language === lang.code ? 'text-black bg-neutral-50' : 'text-neutral-400 hover:text-black'
+                          }`}
+                        >
+                          {lang.label}
+                        </button>
+                      ))}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              {/* Mobile Menu Button */}
+              <button
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="p-2 text-black"
+                data-testid="mobile-menu-toggle"
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
+            </div>
           </div>
         </div>
       </nav>
@@ -93,11 +180,11 @@ export function Navigation() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-white pt-20 md:hidden"
+            className="fixed inset-0 z-40 bg-white pt-16 sm:pt-20 lg:hidden"
             data-testid="mobile-menu"
           >
-            <div className="container mx-auto px-6 py-16">
-              <div className="flex flex-col gap-8">
+            <div className="container mx-auto px-6 py-12 sm:py-16">
+              <div className="flex flex-col gap-6 sm:gap-8">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.path}
@@ -107,12 +194,12 @@ export function Navigation() {
                   >
                     <Link
                       to={link.path}
-                      className={`text-3xl font-extralight tracking-tight ${
+                      className={`text-2xl sm:text-3xl font-extralight tracking-tight ${
                         location.pathname === link.path 
                           ? 'text-black' 
                           : 'text-neutral-300 hover:text-black'
                       } transition-colors`}
-                      data-testid={`mobile-nav-${link.name.toLowerCase()}`}
+                      data-testid={`mobile-nav-${link.path.slice(1)}`}
                     >
                       {link.name}
                     </Link>

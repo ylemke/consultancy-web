@@ -10,16 +10,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../components/ui/select';
+import { useLanguage } from '../context/LanguageContext';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: "easeOut" }
-};
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -35,6 +29,7 @@ const staggerItem = {
 };
 
 export default function ContactPage() {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     company: '',
@@ -61,9 +56,8 @@ export default function ContactPage() {
     e.preventDefault();
     setError('');
 
-    // Validation
     if (!formData.name || !formData.company || !formData.email || !formData.message || !formData.interest) {
-      setError('Please fill in all fields.');
+      setError(t('contact.error'));
       return;
     }
 
@@ -80,177 +74,173 @@ export default function ContactPage() {
         interest: ''
       });
     } catch (err) {
-      setError('Something went wrong. Please try again.');
+      setError(t('contact.errorGeneric'));
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <div className="bg-white min-h-screen pt-24" data-testid="contact-page">
+    <div className="bg-white min-h-screen pt-16 sm:pt-24" data-testid="contact-page">
       {/* Hero Section */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="show"
           >
             <motion.p 
-              className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8"
+              className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-8"
               variants={staggerItem}
             >
-              Contact
+              {t('contact.label')}
             </motion.p>
             <motion.h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-none text-black mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tighter leading-[0.95] text-black mb-6 sm:mb-8"
               variants={staggerItem}
               data-testid="contact-headline"
             >
-              Let's Build<br />Your Strategy.
+              {t('contact.headline')}<br />{t('contact.headline2')}
             </motion.h1>
             <motion.p 
-              className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl"
+              className="text-base sm:text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl"
               variants={staggerItem}
             >
-              Schedule a complimentary, no-obligation 30-minute consultation. Let's discuss how we can accelerate your enterprise or career.
+              {t('contact.subheadline')}
             </motion.p>
           </motion.div>
         </div>
       </section>
 
       {/* Divider */}
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
         <div className="h-px bg-neutral-100" />
       </div>
 
       {/* Main Content */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+      <section className="py-16 sm:py-24 md:py-32">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-24">
             {/* Contact Form */}
             <motion.div
-              {...fadeInUp}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
             >
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-12">
-                Send a Message
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8 sm:mb-12">
+                {t('contact.sendMessage')}
               </p>
 
               {isSubmitted ? (
                 <motion.div 
-                  className="flex flex-col items-start gap-6"
+                  className="flex flex-col items-start gap-4 sm:gap-6"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  <CheckCircle className="w-12 h-12 text-black" />
+                  <CheckCircle className="w-10 h-10 sm:w-12 sm:h-12 text-black" />
                   <div>
-                    <h3 className="text-2xl font-medium tracking-tight text-black mb-2">
-                      Message Sent
+                    <h3 className="text-xl sm:text-2xl font-medium tracking-tight text-black mb-2">
+                      {t('contact.messageSent')}
                     </h3>
-                    <p className="text-base text-neutral-600">
-                      Thank you for reaching out. I'll respond within 24-48 hours.
+                    <p className="text-sm sm:text-base text-neutral-600">
+                      {t('contact.messageSentDesc')}
                     </p>
                   </div>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-neutral-500 transition-colors"
+                    className="text-xs sm:text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-neutral-500 transition-colors"
                     data-testid="send-another-btn"
                   >
-                    Send Another Message
+                    {t('contact.sendAnother')}
                   </button>
                 </motion.div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-8" data-testid="contact-form">
-                  {/* Name */}
+                <form onSubmit={handleSubmit} className="space-y-6 sm:space-y-8" data-testid="contact-form">
                   <div>
                     <input
                       type="text"
                       name="name"
                       value={formData.name}
                       onChange={handleInputChange}
-                      placeholder="Name"
-                      className="w-full bg-transparent border-b border-neutral-200 py-4 text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors"
+                      placeholder={t('contact.namePlaceholder')}
+                      className="w-full bg-transparent border-b border-neutral-200 py-3 sm:py-4 text-sm sm:text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors"
                       data-testid="contact-name-input"
                     />
                   </div>
 
-                  {/* Company */}
                   <div>
                     <input
                       type="text"
                       name="company"
                       value={formData.company}
                       onChange={handleInputChange}
-                      placeholder="Company"
-                      className="w-full bg-transparent border-b border-neutral-200 py-4 text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors"
+                      placeholder={t('contact.companyPlaceholder')}
+                      className="w-full bg-transparent border-b border-neutral-200 py-3 sm:py-4 text-sm sm:text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors"
                       data-testid="contact-company-input"
                     />
                   </div>
 
-                  {/* Email */}
                   <div>
                     <input
                       type="email"
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      placeholder="Email"
-                      className="w-full bg-transparent border-b border-neutral-200 py-4 text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors"
+                      placeholder={t('contact.emailPlaceholder')}
+                      className="w-full bg-transparent border-b border-neutral-200 py-3 sm:py-4 text-sm sm:text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors"
                       data-testid="contact-email-input"
                     />
                   </div>
 
-                  {/* Interest Dropdown */}
                   <div>
                     <Select value={formData.interest} onValueChange={handleSelectChange}>
                       <SelectTrigger 
-                        className="w-full bg-transparent border-0 border-b border-neutral-200 rounded-none py-4 h-auto text-base focus:ring-0 focus:border-black transition-colors"
+                        className="w-full bg-transparent border-0 border-b border-neutral-200 rounded-none py-3 sm:py-4 h-auto text-sm sm:text-base focus:ring-0 focus:border-black transition-colors"
                         data-testid="contact-interest-select"
                       >
-                        <SelectValue placeholder="I am interested in:" className="text-neutral-400" />
+                        <SelectValue placeholder={t('contact.interestPlaceholder')} className="text-neutral-400" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Corporate Advisory" data-testid="option-corporate">Corporate Advisory</SelectItem>
-                        <SelectItem value="Career Mentorship" data-testid="option-career">Career Mentorship</SelectItem>
+                        <SelectItem value="Corporate Advisory" data-testid="option-corporate">{t('contact.interestCorporate')}</SelectItem>
+                        <SelectItem value="Career Mentorship" data-testid="option-career">{t('contact.interestCareer')}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
-                  {/* Message */}
                   <div>
                     <textarea
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Message"
+                      placeholder={t('contact.messagePlaceholder')}
                       rows={4}
-                      className="w-full bg-transparent border-b border-neutral-200 py-4 text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors resize-none"
+                      className="w-full bg-transparent border-b border-neutral-200 py-3 sm:py-4 text-sm sm:text-base text-black placeholder:text-neutral-400 focus:outline-none focus:border-black transition-colors resize-none"
                       data-testid="contact-message-input"
                     />
                   </div>
 
-                  {/* Error */}
                   {error && (
-                    <p className="text-sm text-red-500" data-testid="contact-error">
+                    <p className="text-xs sm:text-sm text-red-500" data-testid="contact-error">
                       {error}
                     </p>
                   )}
 
-                  {/* Submit */}
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center justify-center h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto"
                     data-testid="contact-submit-btn"
                   >
                     {isSubmitting ? (
                       <>
                         <Loader2 className="w-4 h-4 mr-3 animate-spin" />
-                        Sending...
+                        {t('contact.sending')}
                       </>
                     ) : (
                       <>
-                        Send Message
+                        {t('contact.submitButton')}
                         <ArrowRight className="ml-3 w-4 h-4" />
                       </>
                     )}
@@ -265,14 +255,15 @@ export default function ContactPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-12">
-                Schedule a Call
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8 sm:mb-12">
+                {t('contact.scheduleCall')}
               </p>
-              <div className="bg-neutral-50 min-h-[650px]" data-testid="calendly-embed">
+              <div className="bg-neutral-50 min-h-[500px] sm:min-h-[600px] lg:min-h-[650px]" data-testid="calendly-embed">
                 <InlineWidget 
                   url="https://calendly.com/yasmin-lemke"
                   styles={{
-                    height: '650px',
+                    height: '100%',
+                    minHeight: '500px',
                     width: '100%'
                   }}
                   pageSettings={{
@@ -290,37 +281,37 @@ export default function ContactPage() {
       </section>
 
       {/* Additional Info */}
-      <section className="py-24 md:py-32 border-t border-neutral-100">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32 border-t border-neutral-100">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
-            className="grid grid-cols-1 md:grid-cols-3 gap-12"
+            className="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-12"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
           >
             <motion.div variants={staggerItem}>
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4">
-                Response Time
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-3 sm:mb-4">
+                {t('contact.responseTime')}
               </p>
-              <p className="text-base text-neutral-600">
-                I respond to all inquiries within 24-48 hours.
-              </p>
-            </motion.div>
-            <motion.div variants={staggerItem}>
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4">
-                Availability
-              </p>
-              <p className="text-base text-neutral-600">
-                Currently accepting new clients for Q1 2026.
+              <p className="text-sm sm:text-base text-neutral-600">
+                {t('contact.responseTimeDesc')}
               </p>
             </motion.div>
             <motion.div variants={staggerItem}>
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4">
-                Languages
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-3 sm:mb-4">
+                {t('contact.availability')}
               </p>
-              <p className="text-base text-neutral-600">
-                English, Portuguese, Spanish
+              <p className="text-sm sm:text-base text-neutral-600">
+                {t('contact.availabilityDesc')}
+              </p>
+            </motion.div>
+            <motion.div variants={staggerItem}>
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-3 sm:mb-4">
+                {t('contact.languagesLabel')}
+              </p>
+              <p className="text-sm sm:text-base text-neutral-600">
+                {t('contact.languagesDesc')}
               </p>
             </motion.div>
           </motion.div>

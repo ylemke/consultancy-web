@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
-
-const fadeInUp = {
-  initial: { opacity: 0, y: 40 },
-  whileInView: { opacity: 1, y: 0 },
-  viewport: { once: true },
-  transition: { duration: 0.8, ease: "easeOut" }
-};
+import { useLanguage } from '../context/LanguageContext';
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -23,42 +17,44 @@ const staggerItem = {
 };
 
 export default function CompaniesPage() {
+  const { t } = useLanguage();
+
   return (
-    <div className="bg-white min-h-screen pt-24" data-testid="companies-page">
+    <div className="bg-white min-h-screen pt-16 sm:pt-24" data-testid="companies-page">
       {/* Hero Section */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-8">
-              Corporate Advisory
+            <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-8">
+              {t('companies.label')}
             </p>
             <h1 
-              className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter leading-none text-black mb-8"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tighter leading-[0.95] text-black mb-6 sm:mb-8"
               data-testid="companies-headline"
             >
-              Resilient Systems<br />at Scale.
+              {t('companies.headline')}<br />{t('companies.headline2')}
             </h1>
-            <p className="text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl">
-              Strategic governance frameworks that transform complexity into competitive advantage. From audit to implementation, I partner with global enterprises to build systems that scale.
+            <p className="text-base sm:text-lg md:text-xl font-light leading-relaxed text-neutral-600 max-w-2xl">
+              {t('companies.subheadline')}
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Divider */}
-      <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
         <div className="h-px bg-neutral-100" />
       </div>
 
       {/* Services Section */}
-      <section className="py-24 md:py-32">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
-            className="grid grid-cols-1 lg:grid-cols-3 gap-16 lg:gap-24"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 lg:gap-16 xl:gap-24"
             variants={staggerContainer}
             initial="hidden"
             whileInView="show"
@@ -66,81 +62,81 @@ export default function CompaniesPage() {
           >
             {/* Service 1 */}
             <motion.div variants={staggerItem} data-testid="service-governance">
-              <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">01</span>
+              <div className="mb-6 sm:mb-8">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">01</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
-                Governance Supportability & PMO
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-black mb-4 sm:mb-6">
+                {t('companies.service1Title')}
               </h3>
-              <p className="text-base font-normal leading-relaxed text-neutral-600 mb-8">
-                Audit IT pipelines and design standardized governance frameworks for global scale. Bridging the gap between technical innovation and business continuity.
+              <p className="text-sm sm:text-base font-normal leading-relaxed text-neutral-600 mb-6 sm:mb-8">
+                {t('companies.service1Desc')}
               </p>
-              <ul className="space-y-3 text-sm text-neutral-500">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-neutral-500">
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Enterprise-wide governance audits
+                  {t('companies.service1Item1')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Standardized framework design
+                  {t('companies.service1Item2')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Cross-functional alignment
+                  {t('companies.service1Item3')}
                 </li>
               </ul>
             </motion.div>
 
             {/* Service 2 */}
             <motion.div variants={staggerItem} data-testid="service-risk">
-              <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">02</span>
+              <div className="mb-6 sm:mb-8">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">02</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
-                Quantitative Risk & AI Compliance
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-black mb-4 sm:mb-6">
+                {t('companies.service2Title')}
               </h3>
-              <p className="text-base font-normal leading-relaxed text-neutral-600 mb-8">
-                Tailored frameworks prioritizing quantitative models and advanced anomaly detection. Transition operations from reactive firefighting to proactive prevention.
+              <p className="text-sm sm:text-base font-normal leading-relaxed text-neutral-600 mb-6 sm:mb-8">
+                {t('companies.service2Desc')}
               </p>
-              <ul className="space-y-3 text-sm text-neutral-500">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-neutral-500">
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  FAIR methodology implementation
+                  {t('companies.service2Item1')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Cyber risk quantification
+                  {t('companies.service2Item2')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Predictive analytics integration
+                  {t('companies.service2Item3')}
                 </li>
               </ul>
             </motion.div>
 
             {/* Service 3 */}
             <motion.div variants={staggerItem} data-testid="service-roadmaps">
-              <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">03</span>
+              <div className="mb-6 sm:mb-8">
+                <span className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">03</span>
               </div>
-              <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
-                Master Roadmaps & Resilience
+              <h3 className="text-xl sm:text-2xl md:text-3xl font-medium tracking-tight text-black mb-4 sm:mb-6">
+                {t('companies.service3Title')}
               </h3>
-              <p className="text-base font-normal leading-relaxed text-neutral-600 mb-8">
-                Master Integration Roadmaps for global M&A consolidations. Automated Data Sanitization frameworks to ensure multi-jurisdictional compliance.
+              <p className="text-sm sm:text-base font-normal leading-relaxed text-neutral-600 mb-6 sm:mb-8">
+                {t('companies.service3Desc')}
               </p>
-              <ul className="space-y-3 text-sm text-neutral-500">
+              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm text-neutral-500">
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  M&A integration strategy
+                  {t('companies.service3Item1')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Multi-jurisdictional compliance
+                  {t('companies.service3Item2')}
                 </li>
                 <li className="flex items-start">
                   <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Automated data sanitization
+                  {t('companies.service3Item3')}
                 </li>
               </ul>
             </motion.div>
@@ -149,26 +145,29 @@ export default function CompaniesPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 md:py-32 border-t border-neutral-100">
-        <div className="container mx-auto px-6 md:px-12 max-w-7xl">
+      <section className="py-16 sm:py-24 md:py-32 border-t border-neutral-100">
+        <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div 
-            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-12"
-            {...fadeInUp}
+            className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 sm:gap-12"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
           >
             <div className="max-w-2xl">
-              <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-6">
-                Ready to Transform?
+              <p className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-6">
+                {t('companies.ctaLabel')}
               </p>
-              <h2 className="text-3xl md:text-5xl font-light tracking-tight text-black">
-                Let's architect your enterprise resilience.
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-black">
+                {t('companies.ctaTitle')}
               </h2>
             </div>
             <Link 
               to="/contact"
-              className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 flex-shrink-0"
+              className="inline-flex items-center justify-center h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 flex-shrink-0 w-full sm:w-auto"
               data-testid="companies-cta"
             >
-              Schedule Consultation
+              {t('companies.ctaButton')}
               <ArrowRight className="ml-3 w-4 h-4" />
             </Link>
           </motion.div>
