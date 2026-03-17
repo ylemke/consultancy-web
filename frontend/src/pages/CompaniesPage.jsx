@@ -67,7 +67,7 @@ export default function CompaniesPage() {
             {/* Service 1 */}
             <motion.div variants={staggerItem} data-testid="service-governance">
               <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37]">01</span>
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">01</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
                 Governance Supportability & PMO
@@ -77,15 +77,15 @@ export default function CompaniesPage() {
               </p>
               <ul className="space-y-3 text-sm text-neutral-500">
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   Enterprise-wide governance audits
                 </li>
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   Standardized framework design
                 </li>
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   Cross-functional alignment
                 </li>
               </ul>
@@ -94,7 +94,7 @@ export default function CompaniesPage() {
             {/* Service 2 */}
             <motion.div variants={staggerItem} data-testid="service-risk">
               <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37]">02</span>
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">02</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
                 Quantitative Risk & AI Compliance
@@ -104,15 +104,15 @@ export default function CompaniesPage() {
               </p>
               <ul className="space-y-3 text-sm text-neutral-500">
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   FAIR methodology implementation
                 </li>
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   Cyber risk quantification
                 </li>
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   Predictive analytics integration
                 </li>
               </ul>
@@ -121,7 +121,7 @@ export default function CompaniesPage() {
             {/* Service 3 */}
             <motion.div variants={staggerItem} data-testid="service-roadmaps">
               <div className="mb-8">
-                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#D4AF37]">03</span>
+                <span className="text-xs font-semibold tracking-[0.2em] uppercase text-neutral-300">03</span>
               </div>
               <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-black mb-6">
                 Master Roadmaps & Resilience
@@ -131,15 +131,15 @@ export default function CompaniesPage() {
               </p>
               <ul className="space-y-3 text-sm text-neutral-500">
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   M&A integration strategy
                 </li>
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   Multi-jurisdictional compliance
                 </li>
                 <li className="flex items-start">
-                  <span className="w-1 h-1 bg-[#D4AF37] rounded-full mt-2 mr-3 flex-shrink-0" />
+                  <span className="w-1 h-1 bg-black rounded-full mt-2 mr-3 flex-shrink-0" />
                   Automated data sanitization
                 </li>
               </ul>
@@ -165,7 +165,7 @@ export default function CompaniesPage() {
             </div>
             <Link 
               to="/contact"
-              className="inline-flex items-center justify-center h-14 px-10 bg-[#D4AF37] text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#C5A028] transition-all duration-300 flex-shrink-0"
+              className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 flex-shrink-0"
               data-testid="companies-cta"
             >
               Schedule Consultation

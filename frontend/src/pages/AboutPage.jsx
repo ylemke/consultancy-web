@@ -81,7 +81,7 @@ export default function AboutPage() {
                     data-testid="about-image"
                   />
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-24 h-px bg-[#D4AF37]" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-px bg-black" />
               </div>
             </motion.div>
           </div>
@@ -225,7 +225,7 @@ export default function AboutPage() {
             </div>
             <Link 
               to="/contact"
-              className="inline-flex items-center justify-center h-14 px-10 bg-[#D4AF37] text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#C5A028] transition-all duration-300 flex-shrink-0"
+              className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 flex-shrink-0"
               data-testid="about-cta"
             >
               Get in Touch

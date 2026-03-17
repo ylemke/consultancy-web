@@ -57,14 +57,14 @@ export default function HomePage() {
                 Governance that Accelerates. Careers that Scale. I build AI-driven, supportable risk frameworks for global enterprises, and mentor ambitious professionals to conquer rigorous Big Tech interview loops.
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* CTA Buttons - Minimal */}
               <motion.div 
-                className="flex flex-col sm:flex-row gap-4 mb-16"
+                className="flex flex-col sm:flex-row gap-6 mb-16"
                 variants={staggerItem}
               >
                 <Link 
                   to="/companies"
-                  className="inline-flex items-center justify-center h-14 px-10 bg-[#D4AF37] text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#C5A028] transition-all duration-300"
+                  className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300"
                   data-testid="partner-cta"
                 >
                   Partner with Me
@@ -72,7 +72,7 @@ export default function HomePage() {
                 </Link>
                 <Link 
                   to="/careers"
-                  className="inline-flex items-center justify-center h-14 px-10 border border-[#D4AF37] text-black text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#D4AF37] hover:text-white transition-all duration-300"
+                  className="inline-flex items-center justify-center h-12 px-8 border border-black text-black text-xs font-medium tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300"
                   data-testid="career-cta"
                 >
                   Advance Your Career
@@ -107,7 +107,7 @@ export default function HomePage() {
                   />
                 </div>
                 {/* Subtle accent line */}
-                <div className="absolute -bottom-4 -left-4 w-24 h-px bg-[#D4AF37]" />
+                <div className="absolute -bottom-4 -left-4 w-24 h-px bg-black" />
               </div>
             </motion.div>
           </div>

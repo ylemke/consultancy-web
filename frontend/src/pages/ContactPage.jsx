@@ -142,7 +142,7 @@ export default function ContactPage() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                 >
-                  <CheckCircle className="w-12 h-12 text-[#D4AF37]" />
+                  <CheckCircle className="w-12 h-12 text-black" />
                   <div>
                     <h3 className="text-2xl font-medium tracking-tight text-black mb-2">
                       Message Sent
@@ -153,7 +153,7 @@ export default function ContactPage() {
                   </div>
                   <button
                     onClick={() => setIsSubmitted(false)}
-                    className="text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-[#D4AF37] transition-colors"
+                    className="text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-neutral-500 transition-colors"
                     data-testid="send-another-btn"
                   >
                     Send Another Message
@@ -240,7 +240,7 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="inline-flex items-center justify-center h-14 px-10 bg-[#D4AF37] text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-[#C5A028] transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="inline-flex items-center justify-center h-12 px-8 bg-black text-white text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                     data-testid="contact-submit-btn"
                   >
                     {isSubmitting ? (
@@ -276,10 +276,10 @@ export default function ContactPage() {
                     width: '100%'
                   }}
                   pageSettings={{
-                    backgroundColor: 'fafafa',
+                    backgroundColor: 'ffffff',
                     hideEventTypeDetails: false,
                     hideLandingPageDetails: false,
-                    primaryColor: 'D4AF37',
+                    primaryColor: '000000',
                     textColor: '000000'
                   }}
                 />
