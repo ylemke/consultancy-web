@@ -13,6 +13,7 @@ export function Navigation() {
 
   const navLinks = [
     { name: t('nav.mentoring'), path: '/mentoring' },
+    { name: t('nav.courses'), path: '/courses' },
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.contact'), path: '/contact' },
   ];
@@ -27,7 +28,6 @@ export function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -39,16 +39,18 @@ export function Navigation() {
 
   return (
     <>
-      <nav 
+      <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled ? 'bg-white/95 nav-blur border-b border-neutral-100' : 'bg-transparent'
+          isScrolled
+            ? 'bg-white/95 nav-blur border-b border-neutral-100'
+            : 'bg-transparent'
         }`}
         data-testid="main-navigation"
       >
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <div className="flex items-center justify-between h-16 sm:h-20">
-            {/* Minimalist Logo */}
-            <Link 
+            {/* Logo */}
+            <Link
               to="/"
               className="group flex items-center gap-2 sm:gap-3"
               data-testid="nav-logo"
@@ -69,8 +71,8 @@ export function Navigation() {
                   key={link.path}
                   to={link.path}
                   className={`text-[11px] font-medium tracking-[0.2em] uppercase transition-colors ${
-                    location.pathname === link.path 
-                      ? 'text-black' 
+                    location.pathname === link.path
+                      ? 'text-black'
                       : 'text-neutral-400 hover:text-black'
                   }`}
                   data-testid={`nav-${link.path.slice(1)}`}
@@ -79,7 +81,7 @@ export function Navigation() {
                 </Link>
               ))}
 
-              {/* Language Selector - Desktop */}
+              {/* Language Selector */}
               <div className="relative">
                 <button
                   onClick={() => setIsLangOpen(!isLangOpen)}
@@ -100,12 +102,11 @@ export function Navigation() {
                       {languages.map((lang) => (
                         <button
                           key={lang.code}
-                          onClick={() => {
-                            setLanguage(lang.code);
-                            setIsLangOpen(false);
-                          }}
+                          onClick={() => { setLanguage(lang.code); setIsLangOpen(false); }}
                           className={`block w-full px-4 py-2 text-[11px] font-medium tracking-[0.2em] uppercase text-left transition-colors ${
-                            language === lang.code ? 'text-black bg-neutral-50' : 'text-neutral-400 hover:text-black hover:bg-neutral-50'
+                            language === lang.code
+                              ? 'text-black bg-neutral-50'
+                              : 'text-neutral-400 hover:text-black hover:bg-neutral-50'
                           }`}
                           data-testid={`lang-${lang.code}`}
                         >
@@ -120,7 +121,6 @@ export function Navigation() {
 
             {/* Mobile: Language + Menu */}
             <div className="flex lg:hidden items-center gap-4">
-              {/* Language Selector - Mobile */}
               <div className="relative">
                 <button
                   onClick={() => setIsLangOpen(!isLangOpen)}
@@ -141,12 +141,11 @@ export function Navigation() {
                       {languages.map((lang) => (
                         <button
                           key={lang.code}
-                          onClick={() => {
-                            setLanguage(lang.code);
-                            setIsLangOpen(false);
-                          }}
+                          onClick={() => { setLanguage(lang.code); setIsLangOpen(false); }}
                           className={`block w-full px-4 py-2 text-[10px] font-medium tracking-[0.15em] uppercase text-left transition-colors ${
-                            language === lang.code ? 'text-black bg-neutral-50' : 'text-neutral-400 hover:text-black'
+                            language === lang.code
+                              ? 'text-black bg-neutral-50'
+                              : 'text-neutral-400 hover:text-black'
                           }`}
                         >
                           {lang.label}
@@ -157,7 +156,6 @@ export function Navigation() {
                 </AnimatePresence>
               </div>
 
-              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 className="p-2 text-black"
@@ -194,8 +192,8 @@ export function Navigation() {
                     <Link
                       to={link.path}
                       className={`text-2xl sm:text-3xl font-extralight tracking-tight ${
-                        location.pathname === link.path 
-                          ? 'text-black' 
+                        location.pathname === link.path
+                          ? 'text-black'
                           : 'text-neutral-300 hover:text-black'
                       } transition-colors`}
                       data-testid={`mobile-nav-${link.path.slice(1)}`}
