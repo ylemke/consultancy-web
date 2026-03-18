@@ -11,18 +11,10 @@ export function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
           {/* Brand */}
           <div className="col-span-2">
-            <Link 
-              to="/"
-              className="group flex items-center gap-3"
-              data-testid="footer-logo"
-            >
-              <span className="text-2xl font-extralight tracking-tighter text-black">
-                Y
-              </span>
+            <Link to="/" className="group flex items-center gap-3" data-testid="footer-logo">
+              <span className="text-2xl font-extralight tracking-tighter text-black">Y</span>
               <span className="h-4 w-px bg-neutral-200" />
-              <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-neutral-400">
-                Lemke
-              </span>
+              <span className="text-[10px] font-medium tracking-[0.25em] uppercase text-neutral-400">Lemke</span>
             </Link>
             <p className="text-sm text-neutral-400 mt-4 sm:mt-6 max-w-sm leading-relaxed">
               {t('footer.tagline')}
@@ -35,22 +27,29 @@ export function Footer() {
               {t('footer.navigation')}
             </p>
             <div className="flex flex-col gap-2 sm:gap-3">
-              <Link 
-                to="/mentoring" 
+              <Link
+                to="/courses"
+                className="text-sm font-semibold text-black hover:text-neutral-500 transition-colors"
+                data-testid="footer-courses"
+              >
+                {t('nav.courses')}
+              </Link>
+              <Link
+                to="/mentoring"
                 className="text-sm text-neutral-500 hover:text-black transition-colors"
                 data-testid="footer-mentoring"
               >
                 {t('nav.mentoring')}
               </Link>
-              <Link 
-                to="/about" 
+              <Link
+                to="/about"
                 className="text-sm text-neutral-500 hover:text-black transition-colors"
                 data-testid="footer-about"
               >
                 {t('nav.about')}
               </Link>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="text-sm text-neutral-500 hover:text-black transition-colors"
                 data-testid="footer-contact"
               >
@@ -65,17 +64,17 @@ export function Footer() {
               {t('footer.connect')}
             </p>
             <div className="flex flex-col gap-2 sm:gap-3">
-              <a 
-                href="https://www.linkedin.com/in/yasmin-lemke/" 
-                target="_blank" 
+              <a
+                href="https://www.linkedin.com/in/yasmin-lemke/"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm text-neutral-500 hover:text-black transition-colors"
                 data-testid="footer-linkedin"
               >
                 LinkedIn
               </a>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="text-sm text-neutral-500 hover:text-black transition-colors"
                 data-testid="footer-email"
               >
@@ -97,4 +96,4 @@ export function Footer() {
       </div>
     </footer>
   );
-}
+            }
