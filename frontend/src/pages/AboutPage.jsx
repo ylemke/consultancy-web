@@ -150,23 +150,13 @@ export default function AboutPage() {
             </motion.div>
 
             <motion.div className="lg:col-span-9" variants={staggerItem}>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-12">
-                <div>
-                  <h3 className="text-base sm:text-lg font-medium tracking-tight text-black mb-3 sm:mb-4">{t('about.expertiseGov')}</h3>
-                  <ul className="space-y-2 text-sm sm:text-base text-neutral-500">
-                    {t('about.expertiseGovItems').map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-base sm:text-lg font-medium tracking-tight text-black mb-3 sm:mb-4">{t('about.expertiseCareer')}</h3>
-                  <ul className="space-y-2 text-sm sm:text-base text-neutral-500">
-                    {t('about.expertiseCareerItems').map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
+              <div>
+                <h3 className="text-base sm:text-lg font-medium tracking-tight text-black mb-3 sm:mb-4">{t('about.expertiseCareer')}</h3>
+                <ul className="space-y-2 text-sm sm:text-base text-neutral-500">
+                  {t('about.expertiseCareerItems').map((item, i) => (
+                    <li key={i}>{item}</li>
+                  ))}
+                </ul>
               </div>
             </motion.div>
           </motion.div>

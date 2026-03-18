@@ -4,8 +4,7 @@ import { LanguageProvider } from "./context/LanguageContext";
 import { Navigation } from "./components/Navigation";
 import { Footer } from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import CompaniesPage from "./pages/CompaniesPage";
-import CareersPage from "./pages/CareersPage";
+import MentoringPage from "./pages/MentoringPage";
 import AboutPage from "./pages/AboutPage";
 import ContactPage from "./pages/ContactPage";
 
@@ -18,8 +17,7 @@ function App() {
           <main>
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/companies" element={<CompaniesPage />} />
-              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/mentoring" element={<MentoringPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
             </Routes>

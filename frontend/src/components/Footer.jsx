@@ -36,18 +36,11 @@ export function Footer() {
             </p>
             <div className="flex flex-col gap-2 sm:gap-3">
               <Link 
-                to="/companies" 
+                to="/mentoring" 
                 className="text-sm text-neutral-500 hover:text-black transition-colors"
-                data-testid="footer-companies"
+                data-testid="footer-mentoring"
               >
-                {t('nav.companies')}
-              </Link>
-              <Link 
-                to="/careers" 
-                className="text-sm text-neutral-500 hover:text-black transition-colors"
-                data-testid="footer-careers"
-              >
-                {t('nav.careers')}
+                {t('nav.mentoring')}
               </Link>
               <Link 
                 to="/about" 

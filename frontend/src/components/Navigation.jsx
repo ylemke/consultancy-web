@@ -12,8 +12,7 @@ export function Navigation() {
   const { language, setLanguage, t } = useLanguage();
 
   const navLinks = [
-    { name: t('nav.companies'), path: '/companies' },
-    { name: t('nav.careers'), path: '/careers' },
+    { name: t('nav.mentoring'), path: '/mentoring' },
     { name: t('nav.about'), path: '/about' },
     { name: t('nav.contact'), path: '/contact' },
   ];

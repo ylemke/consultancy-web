@@ -61,25 +61,18 @@ export default function HomePage() {
                 {t('home.subheadline')}
               </motion.p>
 
-              {/* CTA Buttons */}
+              {/* Single CTA Button */}
               <motion.div 
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16"
                 variants={staggerItem}
               >
                 <Link 
-                  to="/companies"
+                  to="/mentoring"
                   className="inline-flex items-center justify-center h-12 sm:h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300"
-                  data-testid="partner-cta"
+                  data-testid="mentoring-cta"
                 >
                   {t('home.cta1')}
                   <ArrowRight className="ml-2 sm:ml-3 w-4 h-4" />
-                </Link>
-                <Link 
-                  to="/careers"
-                  className="inline-flex items-center justify-center h-12 sm:h-12 px-6 sm:px-8 border border-black text-black text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-black hover:text-white transition-all duration-300"
-                  data-testid="career-cta"
-                >
-                  {t('home.cta2')}
                 </Link>
               </motion.div>
 
@@ -147,20 +140,20 @@ export default function HomePage() {
             </motion.div>
 
             <motion.div className="text-left" variants={staggerItem}>
-              <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tighter text-black mb-1 sm:mb-3" data-testid="metric-reduction">
-                25%
-              </p>
-              <p className="text-[9px] sm:text-xs font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-neutral-400">
-                {t('home.riskReduction')}
-              </p>
-            </motion.div>
-
-            <motion.div className="text-left" variants={staggerItem}>
               <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tighter text-black mb-1 sm:mb-3" data-testid="metric-languages">
                 3
               </p>
               <p className="text-[9px] sm:text-xs font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-neutral-400">
                 {t('home.languages')}
+              </p>
+            </motion.div>
+
+            <motion.div className="text-left" variants={staggerItem}>
+              <p className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extralight tracking-tighter text-black mb-1 sm:mb-3" data-testid="metric-years">
+                7+
+              </p>
+              <p className="text-[9px] sm:text-xs font-medium tracking-[0.15em] sm:tracking-[0.2em] uppercase text-neutral-400">
+                Years Experience
               </p>
             </motion.div>
           </motion.div>
@@ -188,17 +181,9 @@ export default function HomePage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-8">
               <Link 
-                to="/companies"
+                to="/mentoring"
                 className="text-xs sm:text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-neutral-500 transition-colors inline-flex items-center group"
-                data-testid="explore-companies-link"
-              >
-                {t('home.forEnterprises')}
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <Link 
-                to="/careers"
-                className="text-xs sm:text-sm font-medium tracking-[0.15em] uppercase text-black hover:text-neutral-500 transition-colors inline-flex items-center group"
-                data-testid="explore-careers-link"
+                data-testid="explore-mentoring-link"
               >
                 {t('home.forProfessionals')}
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />

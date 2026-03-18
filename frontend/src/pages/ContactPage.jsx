@@ -203,8 +203,9 @@ export default function ContactPage() {
                         <SelectValue placeholder={t('contact.interestPlaceholder')} className="text-neutral-400" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="Corporate Advisory" data-testid="option-corporate">{t('contact.interestCorporate')}</SelectItem>
-                        <SelectItem value="Career Mentorship" data-testid="option-career">{t('contact.interestCareer')}</SelectItem>
+                        <SelectItem value="Big Tech Interview Coaching" data-testid="option-interview">{t('contact.interestOption1')}</SelectItem>
+                        <SelectItem value="Executive Career Mentorship" data-testid="option-mentorship">{t('contact.interestOption2')}</SelectItem>
+                        <SelectItem value="Storytelling Workshops" data-testid="option-storytelling">{t('contact.interestOption3')}</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
