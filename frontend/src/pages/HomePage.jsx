@@ -25,23 +25,18 @@ export default function HomePage() {
       <section className="min-h-screen flex items-center pt-16 sm:pt-20 pb-12" data-testid="hero-section">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 xl:gap-24 items-center">
-
-            {/* Text Content */}
             <motion.div
               className="lg:col-span-7 order-2 lg:order-1"
               variants={staggerContainer}
               initial="hidden"
               animate="show"
             >
-              {/* Label */}
               <motion.p
                 className="text-[10px] sm:text-xs font-semibold tracking-[0.2em] uppercase text-neutral-400 mb-4 sm:mb-8"
                 variants={staggerItem}
               >
                 {t('home.label')}
               </motion.p>
-
-              {/* Main Headline */}
               <motion.h1
                 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light tracking-tighter leading-[0.95] text-black mb-6 sm:mb-8"
                 variants={staggerItem}
@@ -49,8 +44,6 @@ export default function HomePage() {
               >
                 {t('home.headline')}<br />{t('home.headline2')}
               </motion.h1>
-
-              {/* Subheadline */}
               <motion.p
                 className="text-base sm:text-lg md:text-xl font-light leading-relaxed text-neutral-500 max-w-xl mb-8 sm:mb-12"
                 variants={staggerItem}
@@ -58,15 +51,13 @@ export default function HomePage() {
               >
                 {t('home.subheadline')}
               </motion.p>
-
-              {/* CTAs */}
               <motion.div
                 className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12 sm:mb-16"
                 variants={staggerItem}
               >
                 <Link
                   to="/courses"
-                  className="inline-flex items-center justify-center h-12 sm:h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300"
+                  className="inline-flex items-center justify-center h-12 px-6 sm:px-8 bg-black text-white text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase hover:bg-neutral-800 transition-all duration-300"
                   data-testid="courses-cta"
                 >
                   {t('home.cta1')}
@@ -81,8 +72,6 @@ export default function HomePage() {
                   <ArrowRight className="ml-2 sm:ml-3 w-4 h-4" />
                 </Link>
               </motion.div>
-
-              {/* Trust Banner */}
               <motion.div variants={staggerItem}>
                 <p className="text-[10px] sm:text-xs font-medium tracking-[0.2em] uppercase text-neutral-300 mb-3 sm:mb-4">
                   {t('home.trusted')}
@@ -96,7 +85,6 @@ export default function HomePage() {
               </motion.div>
             </motion.div>
 
-            {/* Image */}
             <motion.div
               className="lg:col-span-5 order-1 lg:order-2"
               initial={{ opacity: 0, x: 40 }}
@@ -124,7 +112,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* AI Courses Teaser Section */}
+      {/* AI Courses Teaser Section — light design */}
       <section className="py-16 sm:py-24 md:py-32 border-t border-neutral-100" data-testid="courses-teaser-section">
         <div className="container mx-auto px-4 sm:px-6 md:px-12 max-w-7xl">
           <motion.div
