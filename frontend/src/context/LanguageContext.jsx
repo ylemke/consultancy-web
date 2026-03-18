@@ -2,9 +2,6 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 const translations = {
   en: {
-
-const translations = {
-  en: {
     nav: {
       mentoring: 'Advisory',
       about: 'About',
