@@ -2,11 +2,14 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Play, MessageCircle, Award, Clock, BarChart2, CheckCircle, Loader2, Mail } from 'lucide-react';
-import axios from 'axios';
 import { useLanguage } from '../context/LanguageContext';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
+
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
 
 const staggerContainer = { hidden: { opacity: 0 }, show: { opacity: 1, transition: { staggerChildren: 0.15 } } };
 const staggerItem = { hidden: { opacity: 0, y: 30 }, show: { opacity: 1, y: 0, transition: { duration: 0.6 } } };
@@ -31,10 +34,11 @@ export default function CoursesPage() {
     if (!email) { setWaitlistError('Please enter your email address.'); return; }
     setIsSubmitting(true);
     try {
-      await axios.post(`${API}/contact`, {
-        name: name || email.split('@')[0], company: '', email,
-        message: 'I want to join the AI Courses waitlist.', interest: 'AI Courses',
-      });
+      await fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({ 'form-name': 'waitlist', name: name || email.split('@')[0], email }),
+    });
       setIsSubmitted(true);
     } catch (err) {
       setWaitlistError('Something went wrong. Please try again.');
